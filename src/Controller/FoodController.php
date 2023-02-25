@@ -17,9 +17,6 @@ class FoodController extends AbstractController
 
         $data = $em->getRepository(Food::class)->findAll();
 
-        // return $this->render('food/index.html.twig', array(
-        //     'food' => $data,
-        // ));
         return $this->render('food/index.html.twig', [
             'food' => $data,
         ]);
