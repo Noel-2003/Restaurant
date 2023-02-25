@@ -19,7 +19,7 @@ class ChefController extends AbstractController
         $chef = $em->getRepository(Chef::class)->findAll();
 
         return $this->render('customer/index.html.twig', array(
-            'customer' => $chef,
+            'chef' => $chef,
         ));
     }
 }

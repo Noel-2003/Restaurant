@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customer list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Chef ID</th>
+            <th>Category</th>
+            <th>Unit Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for food in food %}
+            <tr>
+                <td>{{ food.id }}</a></td>
+                <td>{{ food.Name }}</td>
+                <td>{{ food.ChefID.id }}</td>
+                <td>{{ food.Category}}</td>
+                <td>{{ food.UnitPrice}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

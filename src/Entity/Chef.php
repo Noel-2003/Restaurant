@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ChefRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,16 @@ class Chef
      * @ORM\Column(type="integer")
      */
     private $Phone;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Food::class, mappedBy="ChefID")
+     */
+    private $food;
+
+    public function __construct()
+    {
+        $this->food = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +98,33 @@ class Chef
     public function setPhone(int $Phone): self
     {
         $this->Phone = $Phone;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Food>
+     */
+    public function getFood(): Collection
+    {
+        return $this->food;
+    }
+
+    public function addFood(Food $food): self
+    {
+        if (!$this->food->contains($food)) {
+            $this->food[] = $food;
+            $food->addChefID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFood(Food $food): self
+    {
+        if ($this->food->removeElement($food)) {
+            $food->removeChefID($this);
+        }
 
         return $this;
     }
