@@ -25,15 +25,6 @@ class ChefController extends AbstractController
             'chef' => $chef,
         ));
     }
-    // /**
-    //  * @Route("/chef", name="chef_index", methods={"GET"})
-    //  */
-    // public function indexCRUD(ChefRepository $chefRepository): Response
-    // {
-    //     return $this->render('chef/index.html.twig', [
-    //         'chefs' => $chefRepository->findAll(),
-    //     ]);
-    // }
 
     /**
      * @Route("/chef/new", name="chef_new", methods={"GET", "POST"})
