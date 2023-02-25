@@ -1,31 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Chef list</h1>
+{% block title %}Chef index{% endblock %}
 
-    <table>
+{% block body %}
+    <h1>Chef index</h1>
+
+    <table class="table">
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Birth Day</th>
-            <th>Address</th>
-            <th>Phone</th>
-        </tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>BirthDate</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>actions</th>
+            </tr>
         </thead>
         <tbody>
         {% for chef in chef %}
             <tr>
-                <td>{{ chef.id }}</a></td>
-                <td>{{ chef.name }}</td>
-                <td>{{ chef.BirthDate|date('Y-m-d') }}</td>
+                <td>{{ chef.id }}</td>
+                <td>{{ chef.Name }}</td>
+                <td>{{ chef.BirthDate ? chef.BirthDate|date('Y-m-d') : '' }}</td>
                 <td>{{ chef.Address }}</td>
                 <td>{{ chef.Phone }}</td>
+                <td>
+                    <a href="{{ path('chef_show', {'id': chef.id}) }}">show</a>
+                    <a href="{{ path('chef_edit', {'id': chef.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-
-
+    <a href="{{ path('chef_new') }}">Create new</a>
 {% endblock %}
