@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customer list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Birth Day</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for customer in customer %}
+            <tr>
+                <td>{{ customer.id }}</a></td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.BirthDate|date('Y-m-d') }}</td>
+                <td>{{ customer.Phone }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

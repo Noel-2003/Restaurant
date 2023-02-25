@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Chef list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Birth Day</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for chef in chef %}
+            <tr>
+                <td>{{ chef.id }}</a></td>
+                <td>{{ chef.name }}</td>
+                <td>{{ chef.BirthDate|date('Y-m-d') }}</td>
+                <td>{{ chef.Address }}</td>
+                <td>{{ chef.Phone }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
