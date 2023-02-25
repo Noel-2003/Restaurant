@@ -87,4 +87,18 @@ class CustomerCRUDController extends AbstractController
 
         return $this->redirectToRoute('app_customer_c_r_u_d_index', [], Response::HTTP_SEE_OTHER);
     }
+    // For fun
+  /**
+     * @Route("/customers/{id}",name="customer_show")
+     */
+    public function carByCustomerAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository(Customer::class);
+        $data = $repo->find($id); 
+        $deleteForm = $this->createDeleteForm($data);
+        return $this->render('customer/show.html.twig',array(
+          'customer' => $data, 'delete_form' =>$deleteForm->createDeleForm,
+        ));
+      }
 }
