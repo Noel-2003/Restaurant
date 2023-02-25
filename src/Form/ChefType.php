@@ -6,6 +6,7 @@ use App\Entity\Chef;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ChefType extends AbstractType
 {
@@ -13,11 +14,12 @@ class ChefType extends AbstractType
     {
         $builder
             ->add('Name')
-            ->add('BirthDate')
+            ->add('BirthDate', DateType::class, [
+                'years' => range(2023, 1990)
+            ])
             ->add('Address')
             ->add('Phone')
-            ->add('food')
-        ;
+            ->add('food');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
