@@ -18,7 +18,7 @@ class ChefController extends AbstractController
 
         $chef = $em->getRepository(Chef::class)->findAll();
 
-        return $this->render('customer/index.html.twig', array(
+        return $this->render('chef/index.html.twig', array(
             'chef' => $chef,
         ));
     }
