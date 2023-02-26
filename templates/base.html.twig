@@ -8,7 +8,31 @@
 			{% endblock %}
 		</title>
 		{% block stylesheets %}
-					<style>
+		<style>
+		body {
+    		height: 100%;
+		}
+
+		html {
+    		display: table;
+    		margin: auto;
+		}
+
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+    		display: table-cell;
+    		vertical-align: middle;
+		}
+		table{
+			text-align: center;
+			background-color: black;
+		}
+		th{
+			background-color: white;
+		}
+		td{
+			background-color: white;
+		}
 			body{
 				background-color: cyan
 			}
@@ -21,7 +45,7 @@
 			td{
 				border:1px solid black;
 			}
-			</style>
+			</sty>
 		{% endblock %}
 	</head>
 	<body>
