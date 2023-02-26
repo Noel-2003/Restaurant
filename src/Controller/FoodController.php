@@ -26,7 +26,7 @@ class FoodController extends AbstractController
      * 
      * @Route("/food/{id}/chefs", name="food_chef")
      */
-    public function showFoodByChef($id)
+    public function showPartsByCarId($id)
     {
         $em = $this->getDoctrine()->getManager();
         $repo = $em->getRepository(Food::class);
