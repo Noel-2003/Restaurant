@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Food</h1>
+
+  <table>
+    <tbody>
+    <tr>
+      <th>Food</th>
+      <td>{{ food.id }}</td>
+    </tr>
+    <tr>
+      <th>Food</th>
+      <td>{{ food.name }}</td>
+    </tr>
+    <tr>
+      <th>Unit Price</th>
+      <td>{{ food.UnitPrice }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+<h2>Chef of Foods</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+    <tbody>
+    {% for chef in food.chef %}
+            <tr>
+                <td>{{ chef.id}}</td>
+                <td>{{ chef.name}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

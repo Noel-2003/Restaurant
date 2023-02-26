@@ -22,6 +22,20 @@ class FoodController extends AbstractController
         ]);
     }
     /**
+     * Displays all parts of a given car id.
+     * 
+     * @Route("/food/{id}/chefs", name="food_chef")
+     */
+    public function showPartsByCarId($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository(Food::class);
+        $data = $repo->find($id);
+        return $this->render('food/showFoodAndChef.html.twig', array(
+            'food' => $data,
+        ));
+    }
+    /**
      * @Route("/new", name="food_new", methods={"GET", "POST"})
      */
     public function new(Request $request, FoodRepository $foodRepository): Response
