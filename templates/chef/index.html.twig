@@ -17,7 +17,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for chef in chef %}
+        {% for chef in chefs %}
             <tr>
                 <td>{{ chef.id }}</td>
                 <td>{{ chef.Name }}</td>
@@ -29,12 +29,8 @@
                     <a href="{{ path('chef_edit', {'id': chef.id}) }}">edit</a>
                 </td>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
         </tbody>
+         {% endfor %}
     </table>
 
     <a href="{{ path('chef_new') }}">Create new</a>

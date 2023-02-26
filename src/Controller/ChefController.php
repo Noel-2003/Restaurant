@@ -12,28 +12,28 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ChefController extends AbstractController
 {
-    /**
-     * @Route("/chef", name="chef_index")
-     */
-    public function index(): Response
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $chef = $em->getRepository(Chef::class)->findAll();
-
-        return $this->render('chef/index.html.twig', array(
-            'chef' => $chef,
-        ));
-    }
     // /**
-    //  * @Route("/chef", name="chef_index", methods={"GET"})
+    //  * @Route("/chef", name="chef_index")
     //  */
-    // public function indexCRUD(ChefRepository $chefRepository): Response
+    // public function index(): Response
     // {
-    //     return $this->render('chef/index.html.twig', [
-    //         'chefs' => $chefRepository->findAll(),
-    //     ]);
+    //     $em = $this->getDoctrine()->getManager();
+
+    //     $chef = $em->getRepository(Chef::class)->findAll();
+
+    //     return $this->render('chef/index.html.twig', array(
+    //         'chef' => $chef,
+    //     ));
     // }
+    /**
+     * @Route("/chef", name="chef_index", methods={"GET"})
+     */
+    public function indexCRUD(ChefRepository $chefRepository): Response
+    {
+        return $this->render('chef/index.html.twig', [
+            'chefs' => $chefRepository->findAll(),
+        ]);
+    }
 
     /**
      * @Route("/chef/new", name="chef_new", methods={"GET", "POST"})

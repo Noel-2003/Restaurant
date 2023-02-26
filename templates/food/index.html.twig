@@ -1,31 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Customer list</h1>
+{% block title %}Food index{% endblock %}
 
-    <table>
+{% block body %}
+    <h1>Food index</h1>
+
+    <table class="table">
         <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Chef ID</th>
-            <th>Category</th>
-            <th>Unit Price</th>
-        </tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>UnitPrice</th>
+                <th>actions</th>
+            </tr>
         </thead>
         <tbody>
         {% for food in food %}
             <tr>
-                <td>{{ food.id }}</a></td>
+                <td>{{ food.id }}</td>
                 <td>{{ food.Name }}</td>
-                <td>{{ food.ChefID.id }}</td>
-                <td>{{ food.Category}}</td>
-                <td>{{ food.UnitPrice}}</td>
+                <td>{{ food.Category }}</td>
+                <td>{{ food.UnitPrice }}</td>
+                <td>
+                    <a href="{{ path('food_show', {'id': food.id}) }}">show</a>
+                    <a href="{{ path('food_edit', {'id': food.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-
-
+    <a href="{{ path('food_new') }}">Create new</a>
 {% endblock %}

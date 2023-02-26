@@ -27,7 +27,7 @@ class Food
     /**
      * @ORM\ManyToMany(targetEntity=Chef::class, inversedBy="food")
      */
-    private $ChefID;
+    private $Chef;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -41,7 +41,7 @@ class Food
 
     public function __construct()
     {
-        $this->ChefID = new ArrayCollection();
+        $this->Chef = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -64,23 +64,23 @@ class Food
     /**
      * @return Collection<int, Chef>
      */
-    public function getChefID(): Collection
+    public function getChef(): Collection
     {
-        return $this->ChefID;
+        return $this->Chef;
     }
 
-    public function addChefID(Chef $chefID): self
+    public function addChef(Chef $chef): self
     {
-        if (!$this->ChefID->contains($chefID)) {
-            $this->ChefID[] = $chefID;
+        if (!$this->Chef->contains($chef)) {
+            $this->Chef[] = $chef;
         }
 
         return $this;
     }
 
-    public function removeChefID(Chef $chefID): self
+    public function removeChef(Chef $chef): self
     {
-        $this->ChefID->removeElement($chefID);
+        $this->Chef->removeElement($chef);
 
         return $this;
     }

@@ -30,17 +30,8 @@
             <li>
             <a href="{{ path('customer_edit', {'id': customer.id}) }}">Edit</a>
             </li>
-            <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Delete">
-             {{ form_end(delete_form) }}
-            </li>
             </ul>
-
              </tbody>
         </table>
-
-    
-
     {{ include('customer/delete_form.html.twig') }}
 {% endblock %}

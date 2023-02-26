@@ -40,7 +40,7 @@ class Chef
     private $Phone;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Food::class, mappedBy="ChefID")
+     * @ORM\ManyToMany(targetEntity=Food::class, mappedBy="Chef")
      */
     private $food;
 
@@ -114,7 +114,7 @@ class Chef
     {
         if (!$this->food->contains($food)) {
             $this->food[] = $food;
-            $food->addChefID($this);
+            $food->addChef($this);
         }
 
         return $this;
@@ -123,7 +123,7 @@ class Chef
     public function removeFood(Food $food): self
     {
         if ($this->food->removeElement($food)) {
-            $food->removeChefID($this);
+            $food->removeChef($this);
         }
 
         return $this;
