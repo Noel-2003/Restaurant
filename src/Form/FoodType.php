@@ -15,8 +15,7 @@ class FoodType extends AbstractType
         $builder
             ->add('Name')
             ->add('Category')
-            ->add('UnitPrice')
-            ->add('Chef');
+            ->add('UnitPrice');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
