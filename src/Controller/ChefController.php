@@ -12,19 +12,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ChefController extends AbstractController
 {
-    // /**
-    //  * @Route("/chef", name="chef_index")
-    //  */
-    // public function index(): Response
-    // {
-    //     $em = $this->getDoctrine()->getManager();
-
-    //     $chef = $em->getRepository(Chef::class)->findAll();
-
-    //     return $this->render('chef/index.html.twig', array(
-    //         'chef' => $chef,
-    //     ));
-    // }
     /**
      * @Route("/chef", name="chef_index", methods={"GET"})
      */

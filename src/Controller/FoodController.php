@@ -22,21 +22,7 @@ class FoodController extends AbstractController
         ]);
     }
     /**
-     * Displays all parts of a given car id.
-     * 
-     * @Route("/food/{id}/chefs", name="food_chef")
-     */
-    public function showPartsByCarId($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $repo = $em->getRepository(Food::class);
-        $data = $repo->find($id);
-        return $this->render('food/showFoodAndChef.html.twig', array(
-            'food' => $data,
-        ));
-    }
-    /**
-     * @Route("/new", name="food_new", methods={"GET", "POST"})
+     * @Route("/food/new", name="food_new", methods={"GET", "POST"})
      */
     public function new(Request $request, FoodRepository $foodRepository): Response
     {
@@ -57,7 +43,7 @@ class FoodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="food_show", methods={"GET"})
+     * @Route("/food/{id}", name="food_show", methods={"GET"})
      */
     public function show(Food $food): Response
     {
@@ -67,7 +53,7 @@ class FoodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="food_edit", methods={"GET", "POST"})
+     * @Route("/food/{id}/edit", name="food_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, Food $food, FoodRepository $foodRepository): Response
     {
@@ -87,7 +73,7 @@ class FoodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="food_delete", methods={"POST"})
+     * @Route("/food/{id}", name="food_delete", methods={"POST"})
      */
     public function delete(Request $request, Food $food, FoodRepository $foodRepository): Response
     {
@@ -96,5 +82,19 @@ class FoodController extends AbstractController
         }
 
         return $this->redirectToRoute('food_index', [], Response::HTTP_SEE_OTHER);
+    }
+    /**
+     * Displays all foods of give chef id.
+     * 
+     * @Route("/food/{id}/chef", name="food_chef")
+     */
+    public function showPartsByCarId($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository(Food::class);
+        $data = $repo->find($id);
+        return $this->render('food/showFoodAndChef.html.twig', array(
+            'food' => $data,
+        ));
     }
 }

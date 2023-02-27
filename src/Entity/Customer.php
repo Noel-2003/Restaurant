@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CustomerRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Customer
      * @ORM\Column(type="integer")
      */
     private $Phone;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Bill::class, mappedBy="Customer")
+     */
+    private $bills;
+
+    public function __construct()
+    {
+        $this->bills = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -71,5 +83,39 @@ class Customer
         $this->Phone = $Phone;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Bill[]
+     */
+    public function getBills(): Collection
+    {
+        return $this->bills;
+    }
+
+    public function addBill(Bill $bill): self
+    {
+        if (!$this->bills->contains($bill)) {
+            $this->bills[] = $bill;
+            $bill->setCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBill(Bill $bill): self
+    {
+        if ($this->bills->removeElement($bill)) {
+            // set the owning side to null (unless already changed)
+            if ($bill->getCustomer() === $this) {
+                $bill->setCustomer(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->Name;
     }
 }

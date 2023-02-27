@@ -2,9 +2,13 @@
 <html>
 {% block topmenu %}
 	<header>
-		<a href="{{ path('customer_index') }}">Customer</a>
-		<a href="{{ path('chef_index') }}">Chef</a>
-		<a href="{{ path('food_index') }}">Food</a>
+	<ul>
+		<li><a href="{{ path('customer_index') }}">Customer</a></li>
+		<li><a href="{{ path('chef_index') }}">Chef</a></li>
+		<li><a href="{{ path('food_index') }}">Food</a></li>
+		<li><a href="{{ path('bill_index') }}">Bill</a></li>
+	</ul>
+	<h1> RESTAURANT SYSTEM MANAGER </h1>
 	</header>
 {% endblock %}
 </html>
