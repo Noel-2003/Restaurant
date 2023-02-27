@@ -74,7 +74,7 @@ class BillController extends AbstractController
     }
 
     /**
-     * @Route("/bill_{id}", name="app_bill_delete", methods={"POST"})
+     * @Route("/bill_{id}", name="bill_delete", methods={"POST"})
      */
     public function delete(Request $request, Bill $bill, BillRepository $billRepository): Response
     {

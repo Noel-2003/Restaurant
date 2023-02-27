@@ -12,6 +12,10 @@
                 <td>{{ bill.id }}</td>
             </tr>
             <tr>
+                 <th>Name of Customer</th>
+                <td>{{ bill.customer.Name}}</td>
+            </tr>
+            <tr>
                 <th>Date</th>
                 <td>{{ bill.Date ? bill.Date|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
@@ -23,6 +27,7 @@
                 <th>Total</th>
                 <td>{{ bill.Total }}</td>
             </tr>
+            
         </tbody>
     </table>
 

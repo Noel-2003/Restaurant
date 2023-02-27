@@ -12,6 +12,7 @@
                 <th>Name</th>
                 <th>Category</th>
                 <th>UnitPrice</th>
+                <th>Chef</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,6 +23,11 @@
                 <td>{{ food.Name }}</td>
                 <td>{{ food.Category }}</td>
                 <td>{{ food.UnitPrice }}</td>
+                <td>
+                {% for chef in food.chef %}
+                    {{ chef.name}}
+                </td>
+         {% endfor %}
                 <td>
                     <a href="{{ path('food_show', {'id': food.id}) }}">show</a>
                     <a href="{{ path('food_edit', {'id': food.id}) }}">edit</a>

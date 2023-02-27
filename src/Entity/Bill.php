@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BillRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,7 +44,7 @@ class Bill
         return $this->id;
     }
 
-    public function getCustomer(): ?Customer
+    public function getCustomer()
     {
         return $this->Customer;
     }

@@ -86,7 +86,7 @@ class Customer
     }
 
     /**
-     * @return Collection<int, Bill>
+     * @return Collection|Bill[]
      */
     public function getBills(): Collection
     {
@@ -113,5 +113,9 @@ class Customer
         }
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->Name;
     }
 }
