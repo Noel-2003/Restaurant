@@ -15,6 +15,7 @@ class FoodType extends AbstractType
         $builder
             ->add('Name')
             ->add('Chef')
+            ->add('Category')
             ->add('UnitPrice');
     }
 

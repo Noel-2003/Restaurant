@@ -10,6 +10,10 @@
       <td>{{ food.Name }}</td>
     </tr>
     <tr>
+      <th>Category</th>
+      <td>{{ food.Category }}</td>
+    </tr>
+    <tr>
       <th>Unit Price</th>
       <td>{{ food.UnitPrice }}</td>
     </tr>
@@ -21,10 +25,10 @@
     </tr>
     </tbody>
   </table>
-    <a href="{{ path('food_index') }}">back to list</a>
+    <h3><a href="{{ path('food_index') }}">back to list</a></h3>
 
-    <a href="{{ path('food_edit', {'id': food.id}) }}">edit</a>
+    <h3><a href="{{ path('food_edit', {'id': food.id}) }}">edit</a></h3>
 
-    {{ include('food/delete_form.html.twig') }}
+    <h3>{{ include('food/delete_form.html.twig') }}</h3>
 
 {% endblock %}
