@@ -31,18 +31,48 @@
 		th{
 			background-color: white;
 		}
-		td{
+		tr{
 			background-color: white;
-			padding: 30px;
 		}
 			body{
-				background-color: cyan
+				background-color: cyan;
 			}
 			th{
 				border:1px solid black;
 			}
 			td{
 				border:1px solid black;
+			    padding: 28px;
+			}
+			tr:hover {
+				background-color: cyan;
+			}
+			ul {
+				position: sticky;
+  			list-style-type: none;
+  			margin: 0;
+  			padding: 0;
+  			overflow: hidden;
+ 			background-color: black;
+			}
+
+			li {
+				border-right: 1px solid #bbb;
+  			float: left;
+			}
+
+			li a {
+  			display: block;
+ 			color: cyan;
+  			text-align: center;
+  			padding: 14px 16px;
+  			text-decoration: none;
+			}
+			a{
+				padding: 14px 16px;
+			}
+			a:hover, a:active {
+  			background-color: white;
 			}
 			</style>
 		{% endblock %}
