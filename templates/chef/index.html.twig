@@ -24,13 +24,13 @@
                 <td>{{ chef.Address }}</td>
                 <td>{{ chef.Phone }}</td>
                 <td>
-                    <a href="{{ path('chef_show', {'id': chef.id}) }}">show</a>
-                    <a href="{{ path('chef_edit', {'id': chef.id}) }}">edit</a>
+                    <a href="{{ path('chef_show', {'id': chef.id}) }}">Show</a>
+                    <a href="{{ path('chef_edit', {'id': chef.id}) }}">Edit</a>
                 </td>
             </tr>
         </tbody>
          {% endfor %}
     </table>
 
-    <a href="{{ path('chef_new') }}">Create new</a>
+    <p><a href="{{ path('chef_new') }}">Create new</a><p>
 {% endblock %}

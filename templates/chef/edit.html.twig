@@ -7,7 +7,7 @@
 
     {{ include('chef/form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('chef_index') }}">back to list</a>
+    <p><a href="{{ path('chef_index') }}">Back to list</a></p>
 
-    {{ include('chef/delete_form.html.twig') }}
+    <h4>{{ include('chef/delete_form.html.twig') }}</h4>
 {% endblock %}
