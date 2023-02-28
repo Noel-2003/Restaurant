@@ -25,10 +25,10 @@
     </tr>
     </tbody>
   </table>
-    <h3><a href="{{ path('food_index') }}">Back to list</a></h3>
+    <p><a href="{{ path('food_index') }}">Back to list</a></p>
 
-    <h3><a href="{{ path('food_edit', {'id': food.id}) }}">Edit</a></h3>
+    <p><a href="{{ path('food_edit', {'id': food.id}) }}">Edit</a></p>
 
-    <h3>{{ include('food/delete_form.html.twig') }}</h3>
+    <h4>{{ include('food/delete_form.html.twig') }}</h4>
 
 {% endblock %}

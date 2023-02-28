@@ -25,9 +25,9 @@
             </tr>
              </tbody>
         </table>
-        <h3><a href="{{ path('customer_edit', {'id': customer.id}) }}">Edit</a></h3>
+        <p><a href="{{ path('customer_edit', {'id': customer.id}) }}">Edit</a></p>
 
-        <h3><a href="{{ path('customer_index') }}">Back to list</a></h3>
+        <p><a href="{{ path('customer_index') }}">Back to list</a></p>
 
-        <h3>{{ include('customer/delete_form.html.twig') }}</h3>
+        <h4>{{ include('customer/delete_form.html.twig') }}</h4>
 {% endblock %}
