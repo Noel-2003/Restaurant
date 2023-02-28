@@ -22,7 +22,7 @@ class CustomerController extends AbstractController
         $customer = $em->getRepository(Customer::class)->findAll();
 
         return $this->render('customer/index.html.twig', array(
-            'customers' => $customer,
+            'customer' => $customer,
         ));
     }
     /**
@@ -41,7 +41,7 @@ class CustomerController extends AbstractController
         }
 
         return $this->renderForm('customer/new.html.twig', [
-            'customers' => $customer,
+            'customer' => $customer,
             'form' => $form,
         ]);
     }
@@ -52,7 +52,7 @@ class CustomerController extends AbstractController
     public function show(Customer $customer): Response
     {
         return $this->render('customer/show.html.twig', [
-            'customers' => $customer,
+            'customer' => $customer,
         ]);
     }
 
@@ -71,7 +71,7 @@ class CustomerController extends AbstractController
         }
 
         return $this->renderForm('customer/edit.html.twig', [
-            'customers' => $customer,
+            'customer' => $customer,
             'form' => $form,
         ]);
     }
@@ -87,43 +87,4 @@ class CustomerController extends AbstractController
 
         return $this->redirectToRoute('customer_index', [], Response::HTTP_SEE_OTHER);
     }
-    /**
-   * Deletes a customer entity.
-   *
-   * @Route("/customer/{id}", methods={"DELETE"},name="customer_delete")
-   */
-  public function deleteAction(Request $request, Customer $customer)
-  {
-    $form = $this->createDeleteForm($customer);
-    $form->handleRequest($customer);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-      $em = $this->getDoctrine()->getManager();
-      $em->remove($customer);
-      $em->flush();
-    }
-
-    return $this->redirectToRoute('customer_index'); // load lai du lieu de updated nhung kh thong bao
-  }
-  // tao 1 cai form nhu co Tra :c
-  /**
-   * Creates a form to delete a customer entity.
-   *
-   * @param Part $customer The customer entity
-   *
-   * @return Form The form
-   */
-  /**
-   * Deletes a part entity.
-   *
-   * @Route("/customer/delete/{id}", methods={"DELETE"},name="customer_delete")
-   */
-  private function createDeleteForm(Customer $customer): Form
-  {
-    return $this->createFormBuilder()
-      ->setAction($this->generateUrl('customer_delete', array('id' => $customer->getId())))
-      ->setMethod('DELETE')
-      ->getForm()
-      ;
-  }
 }
