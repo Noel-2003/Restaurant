@@ -39,9 +39,15 @@ class Food
      */
     private $UnitPrice;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrderFood::class, mappedBy="Food")
+     */
+    private $orderFood;
+
     public function __construct()
     {
         $this->Chef = new ArrayCollection();
+        $this->orderFood = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -105,6 +111,40 @@ class Food
     public function setUnitPrice(int $UnitPrice): self
     {
         $this->UnitPrice = $UnitPrice;
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->Name;
+    }
+
+    /**
+     * @return Collection<int, OrderFood>
+     */
+    public function getOrderFood(): Collection
+    {
+        return $this->orderFood;
+    }
+
+    public function addOrderFood(OrderFood $orderFood): self
+    {
+        if (!$this->orderFood->contains($orderFood)) {
+            $this->orderFood[] = $orderFood;
+            $orderFood->setFood($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderFood(OrderFood $orderFood): self
+    {
+        if ($this->orderFood->removeElement($orderFood)) {
+            // set the owning side to null (unless already changed)
+            if ($orderFood->getFood() === $this) {
+                $orderFood->setFood(null);
+            }
+        }
 
         return $this;
     }

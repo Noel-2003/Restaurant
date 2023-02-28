@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OrderFood index{% endblock %}
+
+{% block body %}
+    <h1>OrderFood index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Bill</th>
+                <th>OrderDate</th>
+                <th>Quantity</th>
+                <th>OrderPrice</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for order_food in order_foods %}
+            <tr>
+                <td>{{ order_food.id }}</td>
+                <td>{{ order_food.Bill }}</td>
+                <td>{{ order_food.OrderDate ? order_food.OrderDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ order_food.Quantity }}</td>
+                <td>{{ order_food.OrderPrice }}</td>
+                <td>
+                    <a href="{{ path('app_order_food_show', {'id': order_food.id}) }}">Show</a>
+                    <a href="{{ path('app_order_food_edit', {'id': order_food.id}) }}">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{{ path('app_order_food_new') }}">Create new</a><p>
+{% endblock %}

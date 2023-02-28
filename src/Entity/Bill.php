@@ -39,6 +39,16 @@ class Bill
      */
     private $Total;
 
+    /**
+     * @ORM\OneToMany(targetEntity=OrderFood::class, mappedBy="Bill")
+     */
+    private $orderFood;
+
+    public function __construct()
+    {
+        $this->orderFood = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -88,6 +98,41 @@ class Bill
     public function setTotal(?int $Total): self
     {
         $this->Total = $Total;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->id;
+    }
+
+    /**
+     * @return Collection<int, OrderFood>
+     */
+    public function getOrderFood(): Collection
+    {
+        return $this->orderFood;
+    }
+
+    public function addOrderFood(OrderFood $orderFood): self
+    {
+        if (!$this->orderFood->contains($orderFood)) {
+            $this->orderFood[] = $orderFood;
+            $orderFood->setBill($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderFood(OrderFood $orderFood): self
+    {
+        if ($this->orderFood->removeElement($orderFood)) {
+            // set the owning side to null (unless already changed)
+            if ($orderFood->getBill() === $this) {
+                $orderFood->setBill(null);
+            }
+        }
 
         return $this;
     }
