@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Customer</h1>
 
-    <h3>{{ include('customer/form.html.twig', {'button_label': 'Update'}) }}</h3>
+    {{ include('customer/form.html.twig', {'button_label': 'Update'}) }}
 
-    <h3><a href="{{ path('customer_index') }}">Back to list</a></h3>
+    <a href="{{ path('customer_index') }}">Back to list</a>
 
-    <h3>{{ include('customer/delete_form.html.twig') }}</h3>
+    {{ include('customer/delete_form.html.twig') }}
 {% endblock %}

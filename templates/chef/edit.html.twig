@@ -5,9 +5,9 @@
 {% block body %}
     <h1>Edit Chef</h1>
 
-   <h3>{{ include('chef/form.html.twig', {'button_label': 'Update'}) }}</h3>
+    {{ include('chef/form.html.twig', {'button_label': 'Update'}) }}
 
-    <h3><a href="{{ path('chef_index') }}">back to list</a></h3>
+    <a href="{{ path('chef_index') }}">back to list</a>
 
-    <h3>{{ include('chef/delete_form.html.twig') }}</h3>
+    {{ include('chef/delete_form.html.twig') }}
 {% endblock %}
