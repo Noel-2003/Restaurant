@@ -25,8 +25,8 @@
                 <td>{{ order_food.Quantity }}</td>
                 <td>{{ order_food.OrderPrice }}</td>
                 <td>
-                    <a href="{{ path('app_order_food_show', {'id': order_food.id}) }}">Show</a>
-                    <a href="{{ path('app_order_food_edit', {'id': order_food.id}) }}">Edit</a>
+                    <a href="{{ path('order_food_show', {'id': order_food.id}) }}">Show</a>
+                    <a href="{{ path('order_food_edit', {'id': order_food.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <p><a href="{{ path('app_order_food_new') }}">Create new</a><p>
+    <p><a href="{{ path('order_food_new') }}">Create new</a><p>
 {% endblock %}

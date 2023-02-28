@@ -10,13 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/order/food")
- */
 class OrderFoodController extends AbstractController
 {
     /**
-     * @Route("/", name="app_order_food_index", methods={"GET"})
+     * @Route("/order/food", name="order_food_index", methods={"GET"})
      */
     public function index(OrderFoodRepository $orderFoodRepository): Response
     {
@@ -26,7 +23,7 @@ class OrderFoodController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="app_order_food_new", methods={"GET", "POST"})
+     * @Route("/order/food/new", name="order_food_new", methods={"GET", "POST"})
      */
     public function new(Request $request, OrderFoodRepository $orderFoodRepository): Response
     {
@@ -37,7 +34,7 @@ class OrderFoodController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $orderFoodRepository->add($orderFood, true);
 
-            return $this->redirectToRoute('app_order_food_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('order_food_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('order_food/new.html.twig', [
@@ -47,7 +44,7 @@ class OrderFoodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_order_food_show", methods={"GET"})
+     * @Route("/order/food/{id}", name="order_food_show", methods={"GET"})
      */
     public function show(OrderFood $orderFood): Response
     {
@@ -57,7 +54,7 @@ class OrderFoodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="app_order_food_edit", methods={"GET", "POST"})
+     * @Route("/order/food/{id}/edit", name="order_food_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, OrderFood $orderFood, OrderFoodRepository $orderFoodRepository): Response
     {
@@ -67,7 +64,7 @@ class OrderFoodController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $orderFoodRepository->add($orderFood, true);
 
-            return $this->redirectToRoute('app_order_food_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('order_food_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('order_food/edit.html.twig', [
@@ -77,14 +74,14 @@ class OrderFoodController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_order_food_delete", methods={"POST"})
+     * @Route("/order/food/{id}", name="order_food_delete", methods={"POST"})
      */
     public function delete(Request $request, OrderFood $orderFood, OrderFoodRepository $orderFoodRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$orderFood->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $orderFood->getId(), $request->request->get('_token'))) {
             $orderFoodRepository->remove($orderFood, true);
         }
 
-        return $this->redirectToRoute('app_order_food_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('order_food_index', [], Response::HTTP_SEE_OTHER);
     }
 }
