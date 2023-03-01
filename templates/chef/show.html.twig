@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <p><a href="{{ path('chef_index') }}">back to list</a><p>
+    <p><a class="asm" href="{{ path('chef_index') }}">Back to list</a><p>
 
-    <p><a href="{{ path('chef_edit', {'id': chef.id}) }}">edit</a><p>
+    <p><a class="asm" href="{{ path('chef_edit', {'id': chef.id}) }}">Edit</a><p>
 
     <h4>{{ include('chef/delete_form.html.twig') }}</h4>
 {% endblock %}

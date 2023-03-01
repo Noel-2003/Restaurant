@@ -11,9 +11,9 @@
                 <th>Id</th>
                 <th>Bill</th>
                 <th>Customer</th>
-                <th>OrderDate</th>
+                <th>Order Date</th>
                 <th>Quantity</th>
-                <th>OrderPrice</th>
+                <th>Order Price</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -27,8 +27,8 @@
                 <td>{{ order_food.Quantity }}</td>
                 <td>{{ order_food.OrderPrice }}</td>
                 <td>
-                    <a href="{{ path('order_food_show', {'id': order_food.id}) }}">Show</a>
-                    <a href="{{ path('order_food_edit', {'id': order_food.id}) }}">Edit</a>
+                    <a class="asm" href="{{ path('order_food_show', {'id': order_food.id}) }}">Show</a>
+                    <a class="asm" href="{{ path('order_food_edit', {'id': order_food.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
@@ -39,5 +39,5 @@
         </tbody>
     </table>
 
-    <p><a href="{{ path('order_food_new') }}">Create new</a><p>
+    <p><a class="asm" href="{{ path('order_food_new') }}">Create new</a><p>
 {% endblock %}

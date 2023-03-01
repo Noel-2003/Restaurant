@@ -27,6 +27,7 @@
 			margin: 10px;
 			text-align: center;
 			background-color: cyan;
+			box-shadow:  5px 5px 5px midnightblue;
 		}
 		th{
 			background-color: white;
@@ -66,10 +67,52 @@
   			text-align: center;
   			padding: 14px 16px;
   			text-decoration: none;
+			margin: 20px;
+			background: #F7C8E0;
+			width:70px;height:40px;line-height:42px;padding:14px 16px;border:none;
+			border-radius:10px
 			}
-			a{
-				padding: 14px 16px;
+				li a:before,
+				li a:after{position:absolute;content:"";
+				right:0;top: 0;;background:red;
+				transition:all 1s ease}
+				li a:before{height:0%;width:2px}
+				li a:after{width:0%;height:2px}
+				li a:hover{background:#F7C8E0;box-shadow:5px 5px 5px midnightblue;}
+				li a:hover:before{height:100%}
+				li a:hover:after{width:100%}
+
+			.asm{
+				margin: 20px;
+				width: 100%;
+				background:rgb(0,172,238);
+				background: #F7C8E0;
+				width:100px;height:40px;line-height:42px;padding:14px 16px;border:none;
+				border-radius:10px
 			}
+			.asm:before, .asm:after{
+				position:absolute;content:"";
+				right:0;top:0;background:red;
+				transition:all 1s ease;
+			}
+			.asm:before{
+				height:0%;width:2px
+				}
+			.asm:after{
+				width:0%;height:2px
+				}
+			.asm:hover{
+				background:#F7C8E0;box-shadow:5px 5px 5px midnightblue;
+				}
+			.asm:hover:before{
+				height:100%
+				}
+			.asm:hover:after{
+				width:100%
+			}
+			.asm{
+					font-weight: bold;
+				}
 			h1{
 				text-align: center;
 				color: Black;	
@@ -81,6 +124,23 @@
 			h4{
 				text-align: center;
 			}
+				.btn{background:rgb(0,172,238);
+				background: #F7C8E0;
+				width:100px;height:40px;line-height:42px;padding:0;border:none}
+				.btn:before,
+				.btn:after{position:absolute;content:"";
+				right:0;top:0;background:red;
+				transition:all 1s ease}
+				.btn:before{height:0%;width:2px}
+				.btn:after{width:0%;height:2px}
+				.btn:hover{background:#F7C8E0;box-shadow:5px 5px 5px midnightblue;}
+				.btn:hover:before{height:100%}
+				.btn:hover:after{width:100%}
+				.btn{
+					border-radius: 10px;
+					font-weight: bold;
+				}
+				
 			</style>
 		{% endblock %}
 	</head>

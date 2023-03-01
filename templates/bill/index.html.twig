@@ -25,8 +25,8 @@
                 <td>{{ bill.TableNumber }}</td>
                 <td>{{ bill.Total }}</td>
                 <td>
-                    <a href="{{ path('bill_show', {'id': bill.id}) }}">Show</a>
-                    <a href="{{ path('bill_edit', {'id': bill.id}) }}">Edit</a>
+                    <a class="asm" href="{{ path('bill_show', {'id': bill.id}) }}">Show</a>
+                    <a class="asm" href="{{ path('bill_edit', {'id': bill.id}) }}">Edit</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-   <p> <a href="{{ path('bill_new') }}">Create new</a></p>
+   <p> <a class="asm" href="{{ path('bill_new') }}">Create new</a></p>
 {% endblock %}
