@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Bill</th>
+                <th>Customer</th>
                 <th>OrderDate</th>
                 <th>Quantity</th>
                 <th>OrderPrice</th>
@@ -21,6 +22,7 @@
             <tr>
                 <td>{{ order_food.id }}</td>
                 <td>{{ order_food.Bill }}</td>
+                <td>{{ order_food.Bill.customer.name }}</td>
                 <td>{{ order_food.OrderDate ? order_food.OrderDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ order_food.Quantity }}</td>
                 <td>{{ order_food.OrderPrice }}</td>
